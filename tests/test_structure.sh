@@ -42,5 +42,10 @@ grep -q "PHASE 1 — INTAKE" commands/rubberduck.md \
   || fail "command file missing PHASE 1 — INTAKE marker"
 pass "Phase 1 present"
 
+# 6. Phase 2 present
+grep -q "PHASE 2 — Q&A" commands/rubberduck.md \
+  || fail "command file missing PHASE 2 — Q&A marker"
+pass "Phase 2 present"
+
 echo ""
 echo "All structural checks passed."
