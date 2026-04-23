@@ -26,5 +26,16 @@ for key in ("name", "version", "description"):
 PY
 pass "plugin.json has name, version, description"
 
+# 3. command file exists
+test -f commands/rubberduck.md || fail "commands/rubberduck.md missing"
+pass "command file exists"
+
+# 4. command file has YAML frontmatter
+head -n 1 commands/rubberduck.md | grep -q '^---$' \
+  || fail "command file missing frontmatter opening ---"
+sed -n '2,10p' commands/rubberduck.md | grep -q '^description:' \
+  || fail "command file missing 'description:' in frontmatter"
+pass "command file has frontmatter with description"
+
 echo ""
 echo "All structural checks passed."
