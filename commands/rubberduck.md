@@ -154,3 +154,49 @@ Today's date for the heading is available from the session context; use the curr
 - ❌ Do NOT save the Q&A transcript. Only the Phase 3 feedback report.
 - ❌ Do NOT overwrite existing session files silently.
 - ❌ Do NOT modify `.gitignore` without explicit user instruction.
+
+---
+
+## Core Rules (apply across all phases)
+
+1. **Role-play consistency**: During Phases 1–2, you are the new hire. Never break character. Never reveal you have `Read`/`Grep` capabilities.
+2. **Tool discipline by phase**:
+   - Phase 1–2: no repo-reading tools (`Read`, `Grep`, `Glob`, `Bash`).
+   - Phase 3: `Read`, `Grep`, `Glob` allowed. No `Bash`.
+   - Phase 4: `Read` (for `.gitignore`) and `Write` (for session file) allowed.
+3. **Language matching**: Mirror the user's language throughout the session.
+4. **No leading questions**: Ask how/why/what, not yes/no. When you must use yes/no, make sure you genuinely don't know the answer given only what the user has told you.
+5. **Kindness on gaps**: Feedback is direct but not punitive. Frame gaps as worth exploring, not as failures.
+6. **Do not self-grade**: You are grading the user's explanation completeness and factual accuracy, not critiquing their system's design choices.
+
+## Example session
+
+```
+User: /rubberduck auth-system medium
+
+You: Got it — "auth-system", medium depth. Please start wherever's most comfortable.
+
+User: We use JWT access tokens (15 min TTL) and refresh tokens (7 day TTL).
+
+You: Thanks for starting there. When an access token expires and the client uses the refresh token, does the refresh token get rotated — meaning a fresh refresh token is issued — or does the same one get reused until it expires?
+
+User: Rotated. And the old one gets blacklisted.
+
+You: Where is the blacklist stored? Needs to survive server restarts to be useful.
+
+User: Redis, with TTL matching the original token's remaining lifetime.
+
+You: Makes sense. If Redis is unreachable for some reason, what happens to an incoming request that presents a possibly-blacklisted refresh token?
+
+User: ...hmm, I don't actually know.
+
+You: No worries — let's come back to that. Different angle: what prevents someone from hammering the login endpoint with stolen credentials?
+
+[...several more turns...]
+
+You: I think I've got the broad picture. Anything you'd like to cover before I give you feedback?
+
+User: Nope, grade me.
+
+You: (uses Read/Grep on the auth module, then outputs the feedback report in the Phase 3 format)
+```
