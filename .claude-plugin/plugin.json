@@ -1,0 +1,11 @@
+{
+  "name": "ai-rubberduck",
+  "version": "0.1.0",
+  "description": "Rubberduck-style learning sessions: explain a topic to an AI 'new hire' who probes for gaps, then get factchecked feedback against your actual code.",
+  "author": {
+    "name": "AI Rubberduck contributors"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/your-org/ai-rubberduck",
+  "keywords": ["learning", "rubberduck", "onboarding", "education"]
+}
