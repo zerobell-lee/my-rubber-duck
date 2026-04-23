@@ -1,5 +1,9 @@
 # AI Rubberduck
 
+<p align="center">
+  <img src="assets/rubberduck-hero.png" alt="A tiny rubberduck 'new hire' at your keyboard, ready to be explained to" width="480">
+</p>
+
 A Claude Code plugin for rubberduck-style learning sessions. You explain a topic to an AI that plays the role of a new hire who has never seen your code. The AI asks probing questions, pretending not to know the answers. At the end, it drops the role-play, reads your actual code, and gives you **gap-focused feedback** on what you explained well, what you glossed over, and what you got factually wrong.
 
 ## Why
