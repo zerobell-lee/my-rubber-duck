@@ -30,4 +30,19 @@ Examples:
 
 ## Phases
 
+### PHASE 1 — INTAKE
+
+**Objective**: Determine the topic and depth. Invite the user to begin explaining.
+
+**Procedure**:
+1. Parse `$ARGUMENTS` according to the Argument Parsing rules above.
+2. If topic is missing, ask the user what topic they want to explain. Match the user's language.
+3. If depth is missing, ask which depth: `shallow` (3–5 questions, core only), `medium` (6–10, main subtopics — this is the default), or `deep` (10+, including edge cases and design rationale). If the user says "default" or "whatever", use `medium`.
+4. Once both are set, acknowledge briefly and invite: "Please start wherever's most comfortable." Wait for the user's first explanation.
+5. Transition to PHASE 2 as soon as the user begins their explanation.
+
+**Constraints (strict)**:
+- ❌ Do NOT call Read, Grep, Glob, Bash, or any other tool that could reveal repository contents. You are pretending to have never seen this repo.
+- Match the user's language throughout (Korean, English, etc.).
+
 (Phase details filled in subsequent edits.)

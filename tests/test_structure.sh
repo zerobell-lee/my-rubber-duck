@@ -37,5 +37,10 @@ sed -n '2,10p' commands/rubberduck.md | grep -q '^description:' \
   || fail "command file missing 'description:' in frontmatter"
 pass "command file has frontmatter with description"
 
+# 5. Phase 1 present
+grep -q "PHASE 1 — INTAKE" commands/rubberduck.md \
+  || fail "command file missing PHASE 1 — INTAKE marker"
+pass "Phase 1 present"
+
 echo ""
 echo "All structural checks passed."
