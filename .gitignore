@@ -1,0 +1,9 @@
+# Runtime artifacts produced by the rubberduck command in projects where this plugin is used
+.rubberduck/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
