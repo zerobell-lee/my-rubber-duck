@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "Rubberduck-style learning sessions: explain a topic to an AI 'new hire' who probes for gaps, then get factchecked feedback against your actual code.",
   "author": {
-    "name": "AI Rubberduck contributors"
+    "name": "zerobell-lee",
+    "email": "bnb3456@gmail.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/your-org/ai-rubberduck",
+  "homepage": "https://github.com/zerobell-lee/my-rubber-duck",
   "keywords": ["learning", "rubberduck", "onboarding", "education"]
 }

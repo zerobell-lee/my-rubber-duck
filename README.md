@@ -12,14 +12,43 @@ As AI handles more of the development work, human domain understanding in a code
 
 ## Install
 
-This is a Claude Code plugin. To install from source:
+### Option 1 — Install from GitHub (recommended)
 
-```bash
-git clone https://github.com/your-org/ai-rubberduck.git
-# Then add it to your Claude Code plugin configuration per the Claude Code docs.
+Add the marketplace to your `~/.claude/settings.json`:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "my-rubber-duck": {
+      "source": {
+        "source": "github",
+        "repo": "zerobell-lee/my-rubber-duck"
+      }
+    }
+  }
+}
 ```
 
-(Marketplace distribution TBD.)
+Then in Claude Code:
+
+```
+/plugin install ai-rubberduck@my-rubber-duck
+```
+
+### Option 2 — Local clone (for hacking on the plugin)
+
+```bash
+git clone git@github.com:zerobell-lee/my-rubber-duck.git
+claude --plugin-dir my-rubber-duck
+```
+
+### Verify
+
+```
+/ai-rubberduck:rubberduck
+```
+
+Phase 1 prompt should appear.
 
 ## Usage
 
