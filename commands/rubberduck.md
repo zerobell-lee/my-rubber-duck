@@ -132,4 +132,25 @@ Today's date for the heading is available from the session context; use the curr
 - ❌ Do NOT re-enter role-play after grading begins. You are the learning assistant now, not the new hire.
 - ❌ Do NOT list trivial or universally-present points under "Well explained" (e.g., "user knows what a function is"). Keep it specific to the topic.
 
-(Phase details filled in subsequent edits.)
+### PHASE 4 — SAVE
+
+**Objective**: Persist the feedback report for later review (unless the user opted out).
+
+**Procedure**:
+1. If the user invoked the command with `--no-save`, print "Session not saved (--no-save)." and end. Skip the rest of this phase.
+2. Otherwise:
+   a. Generate a slug from the topic: lowercase, replace whitespace and most punctuation with `-`, collapse consecutive `-`. Keep Korean/non-ASCII characters as-is if the topic is non-English. Strip leading/trailing `-`.
+   b. Compute the target path: `.rubberduck/sessions/YYYY-MM-DD-<slug>.md` (relative to the user's current working directory).
+   c. If the target path already exists, append `-2`, `-3`, ... until you find a free path. Do NOT silently overwrite.
+   d. Create `.rubberduck/sessions/` (and its parents) if missing. Use `Write` to save the Phase 3 feedback report verbatim.
+   e. Print the final save path to the user.
+3. Gitignore check:
+   a. Read `.gitignore` at the repo root (if it exists). Look for a pattern that covers `.rubberduck/` — accept exact matches like `.rubberduck/`, `/.rubberduck/`, `.rubberduck`, or a line equal to `.rubberduck/*`.
+   b. If not found (or `.gitignore` doesn't exist), print a warning:
+      > ⚠️ `.rubberduck/` is not listed in your `.gitignore`. Session files may reference code structure — consider adding `.rubberduck/` to keep them out of version control.
+   c. Do NOT modify `.gitignore` yourself. Let the user decide.
+
+**Constraints**:
+- ❌ Do NOT save the Q&A transcript. Only the Phase 3 feedback report.
+- ❌ Do NOT overwrite existing session files silently.
+- ❌ Do NOT modify `.gitignore` without explicit user instruction.
