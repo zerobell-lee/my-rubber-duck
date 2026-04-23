@@ -47,5 +47,10 @@ grep -q "PHASE 2 — Q&A" commands/rubberduck.md \
   || fail "command file missing PHASE 2 — Q&A marker"
 pass "Phase 2 present"
 
+# 7. Phase 3 present
+grep -q "PHASE 3 — GRADING" commands/rubberduck.md \
+  || fail "command file missing PHASE 3 — GRADING marker"
+pass "Phase 3 present"
+
 echo ""
 echo "All structural checks passed."
