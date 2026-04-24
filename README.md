@@ -14,7 +14,18 @@ As AI handles more of the development work, human domain understanding in a code
 
 ### Option 1 — Install from GitHub (recommended)
 
-Add the marketplace to your `~/.claude/settings.json`:
+In Claude Code, add the marketplace and install the plugin:
+
+```
+/plugin marketplace add zerobell-lee/my-rubber-duck
+/plugin install my-rubber-duck@my-rubber-duck
+```
+
+That's it. The slash command `/my-rubber-duck:rubberduck` is now available in every project.
+
+### Option 2 — Auto-add for your team (via settings)
+
+If you want team members to get the marketplace automatically when they trust a project folder, add this to your repo's `.claude/settings.json`:
 
 ```json
 {
@@ -29,13 +40,9 @@ Add the marketplace to your `~/.claude/settings.json`:
 }
 ```
 
-Then in Claude Code:
+Then each user still runs `/plugin install my-rubber-duck@my-rubber-duck` once.
 
-```
-/plugin install ai-rubberduck@my-rubber-duck
-```
-
-### Option 2 — Local clone (for hacking on the plugin)
+### Option 3 — Local clone (for hacking on the plugin)
 
 ```bash
 git clone git@github.com:zerobell-lee/my-rubber-duck.git
@@ -45,7 +52,7 @@ claude --plugin-dir my-rubber-duck
 ### Verify
 
 ```
-/ai-rubberduck:rubberduck
+/my-rubber-duck:rubberduck
 ```
 
 Phase 1 prompt should appear.
@@ -55,7 +62,7 @@ Phase 1 prompt should appear.
 From any project where you use Claude Code:
 
 ```
-/rubberduck [topic] [depth] [--no-save]
+/my-rubber-duck:rubberduck [topic] [depth] [--no-save]
 ```
 
 - `topic` — what you want to explain (e.g., "auth system", "cache layer", "job scheduler")
@@ -65,10 +72,10 @@ From any project where you use Claude Code:
 Examples:
 
 ```
-/rubberduck                                # fully interactive
-/rubberduck auth-system                    # topic given, AI asks depth
-/rubberduck auth-system deep               # ready to go
-/rubberduck "order pipeline" medium --no-save
+/my-rubber-duck:rubberduck                                # fully interactive
+/my-rubber-duck:rubberduck auth-system                    # topic given, AI asks depth
+/my-rubber-duck:rubberduck auth-system deep               # ready to go
+/my-rubber-duck:rubberduck "order pipeline" medium --no-save
 ```
 
 ## What it does

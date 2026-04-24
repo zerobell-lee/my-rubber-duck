@@ -1,5 +1,5 @@
 {
-  "name": "ai-rubberduck",
+  "name": "my-rubber-duck",
   "version": "0.1.0",
   "description": "Rubberduck-style learning sessions: explain a topic to an AI 'new hire' who probes for gaps, then get factchecked feedback against your actual code.",
   "author": {
